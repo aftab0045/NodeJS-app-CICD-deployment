@@ -17,7 +17,7 @@ Whenever code is pushed to GitHub, Jenkins automatically deploys the latest code
 
 
 #  Architecture
-
+![](./img/Archit%20Image.png)
 ## Workflow
 
 1. Developer pushes code to GitHub
@@ -60,11 +60,6 @@ Installed Software:
 - Java
 - Git
 
-📷 Screenshot:
-
-
-
-
 ## 2️ Target Server (Application Server)
 
 Purpose:
@@ -75,7 +70,7 @@ Installed Software:
 - npm
 - PM2
 
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20155941.png)
 
 
 ---
@@ -116,7 +111,7 @@ Access Jenkins:
 ```
 http://<MASTER_SERVER_IP>:8080
 ```
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20155821.png)
 
 ---
 
@@ -141,7 +136,8 @@ node -v
 npm -v
 pm2 -v
 ```
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20160036.png)
+
 
 # Step 3: Create Jenkins Pipeline Job
 
@@ -157,7 +153,6 @@ Steps:
 
 - Click OK
 
-📷 Screenshot:
 
 # Step 4: Configure GitHub Repository in Jenkins
 
@@ -183,7 +178,7 @@ Branch:
 ```
 main
 ```
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20155821.png)
 
 # Step 5: Add SSH Credentials in Jenkins
 
@@ -209,7 +204,6 @@ ID:
 ```
 node-app-key
 ```
-📷 Screenshot:
 
 # Step 6: Jenkinsfile Configuration
 ```
@@ -269,7 +263,8 @@ pipeline {
     }
 }
 ```
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20160008.png)
+
 
 # Step 7: Configure GitHub Webhook
 
@@ -293,7 +288,7 @@ Click:
 ```
 Add Webhook
 ```
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20160233.png)
 
 # Step 8: Deploy Application
 
@@ -305,7 +300,7 @@ git push origin main
 ```
 Jenkins automatically deploys application.
 
-📷 Screenshot:
+![](./img/Screenshot%202026-02-21%20160008.png)
 
 # Step 9: Access Application
 
@@ -313,7 +308,82 @@ Open browser:
 ```
 http://<TARGET_SERVER_IP>:3000
 ```
-📷 Screenshot:
+
+![](./img/Screenshot%202026-02-21%20155836.png)
+
+![](./img/Screenshot%202026-02-21%20155849.png)
+
+---
+
+#  Step 10: Verify GitHub Webhook Delivery
+
+After pushing code to GitHub, it is important to verify that the webhook triggered successfully.
+
+### Steps to Check Webhook Status:
+
+1. Go to your GitHub Repository
+2. Click **Settings**
+3. Click **Webhooks**
+4. Select your configured webhook
+5. Open the **Recent Deliveries** section
+
+You should see:
+
+✅ **Status Code: 200**  
+✅ **Last delivery was successful**
+
+If the webhook is successful:
+- Jenkins pipeline will automatically start
+- You will see a new build triggered in Jenkins dashboard
+
+![](./img/Screenshot%202026-02-21%20160513.png)
+
+
+---
+
+#  Step 11: Update Code Locally & Automatic Deployment
+
+To test full CI/CD automation:
+
+### 1️. Make Changes Locally
+
+Modify any file (for example `app.js`):
+
+### 2. Push Code to GitHub
+```
+git add .
+git commit -m "Updated application"
+git push origin main
+```
+![](./img/Screenshot%202026-02-21%20160450.png)
+
+### 3. Automatic CI/CD Execution
+
+Once code is pushed:
+
+ - GitHub triggers webhook
+
+ - Jenkins pipeline starts automatically
+
+ - Jenkins pulls latest code
+
+ - Jenkins deploys code to target server
+
+ - PM2 restarts the application
+
+ - Updated application goes live
+
+No manual deployment required
+
+### 4. Verify Updated Application
+
+You will see the updated changes reflected immediately.
+
+![](./img/Screenshot%202026-02-21%20160608.png)
+
+![](./img/Screenshot%202026-02-21%20155908.png)
+
+![](./img/Screenshot%202026-02-21%20160553.png)
 
 # Project Structure
 ```
@@ -326,7 +396,7 @@ NodeJS-app-CICD-deployment/
 └── screenshots/
 ```
 
- #  Conclusion
+#  Conclusion
 
 This project successfully demonstrates the implementation of a complete CI/CD pipeline for automated deployment of a NodeJS application using Jenkins, GitHub, and AWS EC2. By integrating GitHub with Jenkins through webhooks and configuring secure SSH-based deployment, the entire process from code commit to production deployment has been fully automated.
 
@@ -335,3 +405,10 @@ The Jenkins Master server efficiently pulls the latest code from the GitHub repo
 Through this project, I gained practical hands-on experience with Jenkins pipelines, GitHub webhook integration, remote server deployment, process management using PM2, and real-world CI/CD workflows used in production environments.
 
 This setup reflects industry-standard DevOps practices and provides a strong foundation for implementing advanced deployment strategies using tools like Docker, Kubernetes, and cloud-native CI/CD solutions in the future.
+
+
+
+
+
+
+
