@@ -68,7 +68,7 @@ Whenever code is pushed to GitHub, Jenkins automatically deploys the latest vers
 
 Two EC2 Instances were created:
 
-##  1️. Master Server (Jenkins Server)
+  1️. Master Server (Jenkins Server)
 
 **Purpose:**
 - Run Jenkins
@@ -81,7 +81,7 @@ Two EC2 Instances were created:
 
 ---
 
-##  2️. Target Server (Application Server)
+  2️. Target Server (Application Server)
 
 **Purpose:**
 - Host NodeJS Application
